@@ -125,7 +125,7 @@
   import drf from '@/api/drf'
   import axios from 'axios'
 
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
   name: 'ActorProfileView',
@@ -163,9 +163,10 @@
     }
   },
   methods: {
-    // ...mapActions([
-    //   'fetchActorProfileView',
-    //   ]),
+    ...mapActions([
+      'fetchMovieLike',
+      'fetchMovieWatched'
+      ]),
     likeClick(event) {
     console.log(event.target.innerHTML)
     if (event.target.innerHTML === '<i class="fa fa-thumbs-up"></i> Like') {
