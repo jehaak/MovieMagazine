@@ -37,9 +37,9 @@
       <div class="w3-col l4 m6 w3-grayscale">
         <img :src="imgURL" class="w3-image w3-right w3-hide-small" width="335" height="471">
         <b><button
-            v-if="isLoggedIn"
-            onclick="document.getElementById('actorRecom').style.display='block'" 
-            class="w3-button w3-light-grey w3-block "> 
+              @click="modalOpen(actorInfo.id)"
+              class="w3-button w3-light-grey w3-block"
+              id="myBtn">
             Actor's Movie Recommend
         </button></b>
         <!-- <div class="w3-center w3-hide-large w3-hide-medium">
@@ -62,38 +62,11 @@
       </button></p> -->
 
     <!-- 추천 영화 모달 -->
-    <div id="actorRecom" class="w3-modal">
-      <div class="w3-modal-content w3-animate-top w3-card" style="max-width:400px">
-        <!-- 헤더 -->
-        <header class="w3-container w3-black"> 
-          <span onclick="document.getElementById('actorRecom').style.display='none'" 
-          class="w3-button w3-display-topright">&times;</span>
-          <h6>{{recomendMovie.title}}</h6>
-        </header>
-        <!-- 카드바디 -->
-        <div class="w3-container">
-          <div class="w3-justify w3-container">
-            <div class="w3-center">
-              <img :src="movieURL" class="w3-image w3-right w3-hide-small">
-              <p style="font-size:5px"><strong>popularity: {{recomendMovie.popularity}}</strong></p>
-              <p style="font-size:13px">{{recomendMovie.overview}}</p>
-            <!-- <home-movie-card 
-            :movie="recomendMovie" :like="recomendMovie.like" :watched="recomendMovie.watched"
-            ></home-movie-card> -->
-            </div>
-            <!-- 좋아요, 봤어요 -->
-            <p v-if="recomendMovie.like==='true'" class="w3-left"><button class="w3-button w3-white w3-border" style="width: 120px;" @click="[likeClick($event), likeAxios(recomendMovie.local_id)]">✓ Liked</button></p>
-            <p v-if="recomendMovie.like==='false'" class="w3-left"><button class="w3-button w3-white w3-border" style="width: 120px;" @click="[likeClick($event), likeAxios(recomendMovie.local_id)]"><i class="fa fa-thumbs-up"></i> Like</button></p>
-            <p v-if="recomendMovie.watched==='true'" class="w3-left"><button class="w3-button w3-white w3-border" style="width: 120px;" @click="[watchedClick($event), watchedAxios(recomendMovie.local_id)]">✓ Watched</button></p>
-            <p v-if="recomendMovie.watched==='false'" class="w3-left"><button class="w3-button w3-white w3-border" style="width: 120px;" @click="[watchedClick($event), watchedAxios(recomendMovie.local_id)]"><i class="fa fa-video-camera"></i> Watch</button></p>
-          </div>
-        </div>
-        <!-- 푸터 -->
-        <footer class="w3-container w3-black">
-          <p>Recommended by {{actorInfo.name}}</p>
-        </footer>
-      </div>
-    </div>
+    <profile-modal 
+      :id="actorInfo['id']"
+      :name="actorInfo['name']"
+      :movie="recomendMovie"
+    ></profile-modal>
 
 
 
@@ -120,7 +93,7 @@
 
 <script>
   import ProfileMovieCard from '@/cards/ProfileMovieCard.vue'
-  // import HomeMovieCard from '@/components/HomeMovieCard.vue'
+  import ProfileModal from '@/components/ProfileModal.vue'
   import VueHorizontal from 'vue-horizontal'
   import drf from '@/api/drf'
   import axios from 'axios'
@@ -130,7 +103,7 @@
   export default {
   name: 'ActorProfileView',
   components: {
-    // HomeMovieCard, 
+    ProfileModal, 
     VueHorizontal, ProfileMovieCard,
   },
   data () {
@@ -167,15 +140,22 @@
       'fetchMovieLike',
       'fetchMovieWatched'
       ]),
-    likeClick(event) {
-    console.log(event.target.innerHTML)
-    if (event.target.innerHTML === '<i class="fa fa-thumbs-up"></i> Like') {
-      event.target.innerHTML = '✓ Liked'
-    }
-    else {
-      event.target.innerHTML = '<i class="fa fa-thumbs-up"></i> Like'
-    }
+
+    modalOpen(id) {
+      var inst = document.getElementById(id);
+      inst.style = "display: block;"
     },
+
+    likeClick(event) {
+      console.log(event.target.innerHTML)
+      if (event.target.innerHTML === '<i class="fa fa-thumbs-up"></i> Like') {
+        event.target.innerHTML = '✓ Liked'
+      }
+      else {
+        event.target.innerHTML = '<i class="fa fa-thumbs-up"></i> Like'
+      }
+    },
+
     likeAxios(id) {
     this.fetchMovieLike(id)
     },
