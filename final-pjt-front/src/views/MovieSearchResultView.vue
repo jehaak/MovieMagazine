@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import SearchMovieCard from '@/components/SearchMovieCard'
+import SearchMovieCard from '@/cards/SearchMovieCard'
 // import GenreChoice from '@/components/GenreChoice.vue'
 
 import { mapActions, mapGetters } from 'vuex'

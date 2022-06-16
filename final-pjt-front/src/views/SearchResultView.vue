@@ -85,9 +85,9 @@
 </template>
 
 <script>
-import SearchMovieCard from '@/components/SearchMovieCard'
-import ActorCard from '@/components/ActorCard'
-import DirectorCard from '@/components/DirectorCard'
+import SearchMovieCard from '@/cards/SearchMovieCard'
+import ActorCard from '@/cards/ActorCard'
+import DirectorCard from '@/cards/DirectorCard'
 import PerfectDirectorResult from '@/components/PerfectDirectorResult.vue'
 import PerfectActorResult from '@/components/PerfectActorResult.vue'
 import PerfectMovieResult from '@/components/PerfectMovieResult.vue'

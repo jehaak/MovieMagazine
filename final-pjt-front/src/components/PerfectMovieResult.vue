@@ -31,7 +31,7 @@
 <script>
   // import ActorCard from '@/components/ActorCard'
   // import DirectorCard from '@/components/DirectorCard'
-  import HomeMovieCard from '@/components/HomeMovieCard'
+  import HomeMovieCard from '@/cards/HomeMovieCard'
   import { mapActions, } from 'vuex'
 
   // import { mapActions, mapGetters } from 'vuex'

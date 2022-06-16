@@ -20,6 +20,7 @@
         <!-- <p><span class="w3-xlarge">Actor's popularity is {{actorInfo.popularity}}</span></p> -->
         <p><span class="w3-xlarge">Actor's popularity is {{actorInfo.popularity}}.</span> However, once you start to appreciate {{actorInfo.name}}'s effort to understand lines and lay out the feelings inside, you would definately be more into {{actorInfo.name}}. Find more about the actor, by scrolling through the filmography of {{actorInfo.name}} for the film just apt for your vibe.
           It is always fun to explore foreign fields to find the life friend of yours. This actor's might be it!</p>
+      </div>
 
       <!-- 출연작 -->
       <!-- <vue-horizontal>
@@ -33,7 +34,6 @@
 
 
 <!-- 추천 영화 모달 버튼 -->
-      </div>
       <div class="w3-col l4 m6 w3-grayscale">
         <img :src="imgURL" class="w3-image w3-right w3-hide-small" width="335" height="471">
         <b><button
@@ -119,7 +119,7 @@
 </template>
 
 <script>
-  import ProfileMovieCard from '@/components/ProfileMovieCard.vue'
+  import ProfileMovieCard from '@/cards/ProfileMovieCard.vue'
   // import HomeMovieCard from '@/components/HomeMovieCard.vue'
   import VueHorizontal from 'vue-horizontal'
   import drf from '@/api/drf'

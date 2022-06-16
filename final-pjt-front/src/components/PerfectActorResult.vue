@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import ProfileMovieCard from '@/components/ProfileMovieCard.vue'
+  import ProfileMovieCard from '@/cards/ProfileMovieCard.vue'
   import VueHorizontal from 'vue-horizontal'
   import drf from '@/api/drf'
 

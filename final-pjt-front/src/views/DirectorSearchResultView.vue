@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import DirectorCard from '@/components/DirectorCard'
+import DirectorCard from '@/cards/DirectorCard'
 
 import { mapActions, mapGetters } from 'vuex'
 

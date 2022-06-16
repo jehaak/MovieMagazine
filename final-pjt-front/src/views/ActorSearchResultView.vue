@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import ActorCard from '@/components/ActorCard'
+import ActorCard from '@/cards/ActorCard'
 
 import { mapActions, mapGetters } from 'vuex'
 

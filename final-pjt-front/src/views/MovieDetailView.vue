@@ -52,9 +52,9 @@
 
 <script>
   // import MovieCard from '@/components/MovieCard'
-  import ActorCard from '@/components/ActorCard'
-  import HomeMovieCard from '@/components/HomeMovieCard'
-  import DirectorCard from '@/components/DirectorCard'
+  import ActorCard from '@/cards/ActorCard'
+  import HomeMovieCard from '@/cards/HomeMovieCard'
+  import DirectorCard from '@/cards/DirectorCard'
   import { mapActions, mapGetters, } from 'vuex'
   import VueHorizontal from 'vue-horizontal'
   import axios from 'axios'
